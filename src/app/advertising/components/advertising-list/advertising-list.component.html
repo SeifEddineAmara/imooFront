@@ -1,0 +1,92 @@
+
+
+<div style="display: flex;flex-wrap: wrap;padding: 20px;padding-left: 35px">
+  <h1>List of advertising</h1>
+</div>
+
+<div style="display: flex; justify-content: end;">
+  <button mat-raised-button (click)="addAdvertising()" >
+    <div style="display: flex; justify-content: center;"> 
+      <div style="margin-top: 4px;height: 24px;">
+        <mat-icon>add</mat-icon>
+      </div>
+      <div>
+        Ajouter Advertising
+      </div>
+    </div>
+  </button>
+</div>
+
+<div style="display: flex;justify-content: center;" [formGroup]="advertisingForm">
+  <div style="display: flex;">
+    <div style="margin-right: 10px;">
+       Date début  
+    </div>
+    <div>
+      <input type="date" name="dateofbirth" id="dateofbirth" formControlName="start" >
+    </div>
+  </div>
+  <div style="display: flex;margin-left: 20px;">
+    <div style="margin-right: 10px;">
+      Date fin
+    </div>
+    <div>
+      <input type="date" name="dateofbirth" id="dateofbirth" formControlName="end" >
+    </div>
+  </div>
+  <div style="display: flex;margin-left: 20px;">
+    <button  (click)="getAdvertisingBetweenTwoDate()">Valider</button>
+    <button  (click)="getAllAdvertising()">Reset</button>
+  </div>
+</div>
+<!--  -->
+
+<div style="display: flex;flex-wrap: wrap;padding: 20px;">
+  <div style=" width: 25%;" *ngFor="let advertising of advertisings">
+    <mat-card class="example-card" style="margin: 15px; border: 1px solid black;">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{advertising.title}}</mat-card-title>
+      </mat-card-header>
+      <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+      <mat-card-content>
+
+        <div> description: {{advertising.description}} </div>
+        <div> startDate: {{advertising.startDate}}</div>
+        <div> endDate: {{advertising.endDate}}</div>
+        <div> coutParJour: {{advertising.coutParJour}}</div>
+        <div> nbrVuesCible: {{advertising.nbrVuesCible}}</div>
+        <div>coutParVueCible: {{advertising.coutParVueCible}}</div>
+        <div>gainPublicitaire: {{advertising.gainPublicitaire}}</div>
+        <div>nbrVuesFinal: {{advertising.nbrVuesFinal}}</div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div style="display: flex; justify-content: center"> 
+          <button mat-raised-button (click)="updateAdvertising(advertising)">
+            <div style="display: flex; justify-content: center;"> 
+              <div style="margin-top: 4px;height: 24px;">
+                <mat-icon>edit</mat-icon>
+              </div>
+              <div>
+                Modifier
+              </div>
+            </div>
+          </button>
+
+          
+          <button mat-raised-button>
+            <div style="display: flex; justify-content: center;"> 
+              <div style="margin-top: 4px;height: 24px;">
+                <mat-icon>delete</mat-icon>
+              </div>
+              <div (click)="delete(advertising.idAd)">
+                Supprimer
+              </div>
+            </div>
+          </button>
+        </div>
+       
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
