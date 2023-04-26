@@ -4,31 +4,31 @@
   <form [formGroup]="advertisingForm">
     <mat-form-field appearance="outline">
       <mat-label>title</mat-label>
-      <input matInput placeholder="title" formControlName="title" [(ngModel)]="selectedAdvertising.title">
+      <input matInput placeholder="title" formControlName="title" >
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>description</mat-label>
       <input matInput placeholder="description" formControlName="description"
-        [(ngModel)]="selectedAdvertising.description">
+       >
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>nbrVuesCible</mat-label>
       <input type="number" matInput placeholder="nbrVuesCible" formControlName="nbrVuesCible"
-        [(ngModel)]="selectedAdvertising.nbrVuesCible">
+       >
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>coutParVueCible</mat-label>
       <input type="number" matInput placeholder="coutParVueCible" formControlName="coutParVueCible"
-        [(ngModel)]="selectedAdvertising.coutParVueCible">
+       >
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>coutParJour</mat-label>
       <input type="number" matInput placeholder="coutParJour" formControlName="coutParJour"
-        [(ngModel)]="selectedAdvertising.coutParJour">
+       >
     </mat-form-field>
     <!-- image -->
     <div class="form-group">
@@ -40,7 +40,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="startDate" [(ngModel)]="selectedAdvertising.startDate">
+      <input matInput [matDatepicker]="picker" formControlName="startDate">
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
@@ -48,7 +48,7 @@
     <!-- endDate -->
     <mat-form-field appearance="outline">
       <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker1" formControlName="endDate" [(ngModel)]="selectedAdvertising.endDate">
+      <input matInput [matDatepicker]="picker1" formControlName="endDate" >
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
@@ -60,7 +60,7 @@
     <mat-form-field appearance="outline">
       <mat-label>socityName</mat-label>
       <input matInput placeholder="socityName" formControlName="socityName"
-        [(ngModel)]="selectedAdvertising.socityName">
+      >
     </mat-form-field>
 
   </form>
@@ -69,5 +69,5 @@
 <mat-dialog-actions>
   <button mat-button mat-dialog-close>Cancel</button>
   <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
-  <button mat-button [mat-dialog-close]="true" (click)="save()">Confirm</button>
+  <button mat-button  (click)="save()">Confirm</button>
 </mat-dialog-actions>

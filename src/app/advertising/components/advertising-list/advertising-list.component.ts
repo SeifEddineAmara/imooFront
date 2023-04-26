@@ -58,12 +58,11 @@ export class AdvertisingListComponent implements OnInit {
       width: '400px'
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-    /*  this.advertisingService.addAdvertising(result).subscribe(
-        (data: any) => {
-          this.advertisings.push(data)
-        }
-      )*/
+    dialogRef.afterClosed().subscribe((result:any) => {
+      if(result){
+          this.advertisings.push(result)}
+        
+      
     });
   }
   delete(idAd: number) {
@@ -74,17 +73,17 @@ export class AdvertisingListComponent implements OnInit {
       }
     )
   }
-  updateAdvertising(advertising: Advertising) {
+  updateAdvertising(advertising:Advertising) {
     const dialogRef = this.dialog.open(AdvertisingAddEditComponent, {
-      width: '400px'
+      width: '400px',
+      data:advertising
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.advertisingService.updateAdvertising(result).subscribe(
-        (data: any) => {
-          this.advertisings.push(data)
-        }
-      )
+    dialogRef.afterClosed().subscribe((result:any) => {
+      if(result){
+          this.advertisings.push(result)}
+        
+      
     });
   }
   
