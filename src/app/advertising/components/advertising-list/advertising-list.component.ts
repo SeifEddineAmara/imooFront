@@ -14,6 +14,8 @@ export class AdvertisingListComponent implements OnInit {
 
   public advertisingForm!: FormGroup;
   public advertisings!: Advertising[];
+  selectedFile!:File;
+  advertising : Advertising=new Advertising();
 
   constructor(
     private advertisingService: AdvertisingService,
@@ -57,11 +59,11 @@ export class AdvertisingListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.advertisingService.addAdvertising1(result).subscribe(
+    /*  this.advertisingService.addAdvertising(result).subscribe(
         (data: any) => {
           this.advertisings.push(data)
         }
-      )
+      )*/
     });
   }
   delete(idAd: number) {

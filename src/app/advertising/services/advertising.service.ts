@@ -35,19 +35,33 @@ export class AdvertisingService {
   }
 
 
-  addAdvertising1(ad: any): any {
-    return this.httpClient.post<Advertising[]>(
-      `http://localhost:8075/ImmoNexus/Advertising/add-Advertising`,
-      ad
-    );
-  }
+  // addAdvertising1(ad: any): any {
+  //   return this.httpClient.post<Advertising[]>(
+  //     `http://localhost:8075/ImmoNexus/Advertising/add-Advertising`,
+  //     ad
+  //   );
+  // }
+  // addAdvertising(advertising: Advertising, file: Blob): Observable<any> {
+  //   const formData: FormData = new FormData();
+  //   formData.append('file', file);
+  //   formData.append('advertising', JSON.stringify(advertising));
+   
+  //   return this.httpClient.post<any>('http://localhost:8075/ImmoNexus/Advertising/add-Advertising', formData);
+  // }
 
   addAdvertising(advertising: Advertising, file: Blob): Observable<any> {
     const formData: FormData = new FormData();
     formData.append('file', file);
     formData.append('advertising', JSON.stringify(advertising));
-   
-    return this.httpClient.post<any>('http://localhost:8075/ImmoNexus/Advertising/add-Advertising', formData);
+  //  const constvalue={
+  //   advertising : advertising,
+  //   file:formData
+  // } 
+
+ // console.log(constvalue)
+    return this.httpClient.post<any>('http://localhost:8075/ImmoNexus/Advertising/add-Advertisingg',
+    formData
+    );
   }
 
   updateAdvertising(ad: any): Observable<any> {

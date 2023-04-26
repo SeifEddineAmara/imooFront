@@ -14,10 +14,10 @@ export class AdvertisingAddEditComponent implements OnInit {
 
   public advertisingForm!: FormGroup
   public selectedAdvertising!:Advertising;
-
+public image!:string;
   //ach
-//  selectedFile!:File;
-  advertising : Advertising=new Advertising();
+  selectedFile!:File;
+  advertising !: Advertising;
 
   constructor(public dialogRef: MatDialogRef<AdvertisingAddEditComponent>,
         private router:Router,//ach
@@ -32,12 +32,11 @@ export class AdvertisingAddEditComponent implements OnInit {
   }
 
   //ach
- /* onFileSelected(event: any) {
+ onFileSelected(event: any) {
     this.selectedFile= event.target.files[0];
-    this.advertising.image=this.selectedFile.name ;
+    this.image=this.selectedFile.name ;
 
-    console.log(this.advertising.image);
-  }*/
+  }
   
 
 
@@ -53,9 +52,7 @@ export class AdvertisingAddEditComponent implements OnInit {
       startDate: new FormControl(),
       socityName: new FormControl(),
     });
-    this.advertisingForm.valueChanges.subscribe(
-      data => console.log(data)
-    )
+    
   }
   confirm() {
    this.dialogRef.close(this.advertisingForm.value)
@@ -67,9 +64,13 @@ export class AdvertisingAddEditComponent implements OnInit {
   }
 
   
-  /*
+  
  save(){
-    this.cs.addAdvertising(this.advertising,this.selectedFile).subscribe({
+  const advertising:any={...{...this.advertisingForm.value,...{image:this.image}}}
+ console.log(advertising);
+  console.log(this.selectedFile)
+  
+    this.cs.addAdvertising(advertising,this.selectedFile).subscribe({
       next:(Response)=>{
         console.log(Response);
         alert("done");
@@ -82,7 +83,7 @@ export class AdvertisingAddEditComponent implements OnInit {
         console.log("request completed")
       }
     });
-  }*/
+  }
 
 
 }
